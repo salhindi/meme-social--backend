@@ -1,5 +1,7 @@
 class Meme < ApplicationRecord
+    has_one_attached :image
     has_many :tags
-    has_attached_file :image
+    
     validates :title, presence: true
+    # validates_attachment :image, presence: true, content_type: ["image/jpeg", "image/gif", "image/png"]
 end
