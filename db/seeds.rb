@@ -7,4 +7,6 @@ meme = Meme.create(
 
 tag = Tag.create(meme_id: 1, name: "cop")
 
-
+image = Image.create(
+    image_file_name: 'bird.jpg')
+    image.image.attach(io: File.open(Rails.root.join('app/assets/images/bird.jpg')), filename: 'bird.jpg')

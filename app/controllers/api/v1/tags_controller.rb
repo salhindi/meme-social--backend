@@ -1,7 +1,7 @@
 class Api::V1::TagsController < ApplicationController
     def index
         tags = Tag.all
-        render json: tags
+        render json: TagSerializer.new(tags).serialized_json
     end
 
     def create
@@ -9,7 +9,8 @@ class Api::V1::TagsController < ApplicationController
         if tag.save
             render json: tag
         else
-            render json: {error; 'AW SNAP SOMETHINGGS WRONG'}
+            render json: {error: 'AW SNAP SOMETHINGGS WRONG'}
+        end
     end
 
     def show

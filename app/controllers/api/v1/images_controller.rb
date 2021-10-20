@@ -1,7 +1,7 @@
 class Api::V1::ImagesController < ApplicationController
     def index
         images = Image.all
-        render json: images
+        render json: ImageSerializer.new(images).serialized_json
     end
 
     def create
@@ -9,7 +9,8 @@ class Api::V1::ImagesController < ApplicationController
         if image.save
             render json: image
         else
-            render json: {error; 'AW SNAP SOMETHINGGS WRONG'}
+            render json: {error: 'AW SNAP SOMETHINGGS WRONG'}
+        end
     end
 
     def show
@@ -27,7 +28,7 @@ class Api::V1::ImagesController < ApplicationController
     
 
     def image_params
-        params.require(:image).permit(:title, :top_text, :bottom_text, :image_id)
+        params.require(:image).permit(:image_file_name, :image_content_type, :image_file_size, :meme_id)
     end
     
 end

@@ -1,7 +1,7 @@
 class Api::V1::MemesController < ApplicationController
     def index
         memes = Meme.all
-        render json: memes
+        render json: MemeSerializer.new(memes).serialized_json
     end
 
     def create
@@ -11,7 +11,8 @@ class Api::V1::MemesController < ApplicationController
         if meme.save
             render json: meme
         else
-            render json: {error; 'AW SNAP SOMETHINGGS WRONG'}
+            render json: {error: 'AW SNAP SOMETHINGGS WRONG'}
+        end
     end
 
     def show
