@@ -1,4 +1,4 @@
 class Image < ApplicationRecord
-    has_one_attached :image
+    belongs_to :meme
     # validates_attachment :image, presence: true, content_type: ["image/jpeg", "image/gif", "image/png"]
 end
