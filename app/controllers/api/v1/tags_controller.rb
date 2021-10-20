@@ -25,7 +25,7 @@ class Api::V1::TagsController < ApplicationController
     private
 
     def tag_params
-        params.require(:tag).permit(:title, :top_text, :bottom_text, :image_id)
+        params.require(:tag).permit(:name, :meme_id)
     end
 
 end
