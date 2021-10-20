@@ -27,5 +27,6 @@ class Api::V1::TagsController < ApplicationController
     def tag_params
         params.require(:tag).permit(:name, :meme_id)
     end
+    
 
 end

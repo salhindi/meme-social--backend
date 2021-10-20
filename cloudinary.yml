@@ -1,0 +1,7 @@
+CLOUDINARY_URL=cloudinary://587136638846884:1PyJzr_uMBO0izTp4-GiCZnHx04@dbmnx6sld
+production:
+  cloud_name: "dbmnx6sld"
+  api_key: "587136638846884"
+  api_secret: "1PyJzr_uMBO0izTp4-GiCZnHx04"
+  secure: true
+  cdn_subdomain: true
