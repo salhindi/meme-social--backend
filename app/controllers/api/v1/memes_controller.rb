@@ -1,13 +1,13 @@
 class Api::V1::MemesController < ApplicationController
     def index
         memes = Meme.all
-        render json: MemeSerializer.new(memes).serialized_json
+        render json: memes
     end
 
     def create
         meme = Meme.new(meme_params)
-        image = Cloudinary::Uploader.upload(params[:image])
-        meme.update(post_img: image["url"])
+        # image = Cloudinary::Uploader.upload(params[:image])
+        # meme.update(post_img: image["url"])
         if meme.save
             render json: meme
         else
@@ -28,6 +28,6 @@ class Api::V1::MemesController < ApplicationController
     private
 
     def meme_params
-        params.require(:meme).permit(:title, :top_text, :bottom_text, :image_id)
+        params.require(:meme).permit(:title, :top_text, :bottom_text, :attached_image)
     end
 end

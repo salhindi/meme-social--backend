@@ -1,4 +1,5 @@
-class TagSerializer
-  include FastJsonapi::ObjectSerializer
-  attributes :name, :meme_id
+class TagSerializer < ActiveModel::Serializer
+    attributes :id, :name, :meme_id
+    belongs_to :meme 
+    
 end
