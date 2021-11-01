@@ -28,6 +28,6 @@ class Api::V1::MemesController < ApplicationController
     private
 
     def meme_params
-        params.require(:meme).permit(:title, :top_text, :bottom_text, :attached_image)
+        params.require(:meme).permit(:title, :top_text, :bottom_text, :featured_image)
     end
 end

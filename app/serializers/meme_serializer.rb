@@ -1,6 +1,7 @@
 class MemeSerializer < ActiveModel::Serializer
+    
+    
     include Rails.application.routes.url_helpers
-
     attributes :id, :title, :top_text, :bottom_text, :featured_image
     has_many :tags
     
