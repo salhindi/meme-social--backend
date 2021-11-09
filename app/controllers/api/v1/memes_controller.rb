@@ -6,8 +6,6 @@ class Api::V1::MemesController < ApplicationController
 
     def create
         meme = Meme.new(meme_params)
-        # image = Cloudinary::Uploader.upload(params[:image])
-        # meme.update(post_img: image["url"])
         if meme.save
             render json: meme
         else

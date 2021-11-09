@@ -20,9 +20,9 @@ class Api::V1::TagsController < ApplicationController
     end
 
     def destroy
-        tag = Tag.find(params[:id])
-        @meme = Meme.find(tag.meme_id)
-        tag.destroy
+        @tag = Tag.find(params[:id])
+        @meme = Meme.find(@tag.meme_id)
+        @tag.destroy
         render json: @meme
     end
 
