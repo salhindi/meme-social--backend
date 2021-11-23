@@ -23,6 +23,12 @@ class Api::V1::MemesController < ApplicationController
         meme.destroy
     end
 
+    def search
+        @memes = Meme.where("meme LIKE ?", "%" + params[:q] + "%")
+        render json: @memes
+    end
+
+
     private
 
     def meme_params

@@ -4,12 +4,15 @@ class MemeSerializer < ActiveModel::Serializer
     has_many :tags
     
     
+    # def featured_image
+    #   if object.featured_image.attached?
+    #     {
+    #       url: rails_blob_url(object.featured_image)
+    #     }
+    #   end
+    # end
     def featured_image
-      if object.featured_image.attached?
-        {
-          url: rails_blob_url(object.featured_image)
-        }
-      end
+      rails_blob_url(object.featured_image, only_path: true) if object.featured_image.attached?
     end
   
 end

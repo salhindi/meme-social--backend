@@ -4,6 +4,8 @@ class Meme < ApplicationRecord
     
     validates :title, presence: true
 
+    
+
 
     # validates_attachment :featured_image, presence: true
 end
